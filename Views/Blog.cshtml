@@ -1,0 +1,63 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Blog>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<div class="container">
+
+			<!-- Featured blogpost -->
+			<div class="row section">
+				<div class="col-md-12">
+				    @{
+				        IPublishedContent featureStory = Model.Value<IPublishedContent>("featuredStory");
+				        if(featureStory != null)
+				        {
+				            <a href = "@featureStory.Url()" class = "featured-link"><div class = "featured-blog">
+				                @{
+				                    var featureImage = featureStory.Value<IPublishedContent>("thumbnailImage");
+				                }
+				                <div class = "image-box" style = "background-image:url('@featureImage.Url()')"></div>
+    				                <h2>@featureStory.Value("title")</h2>
+    				                <p>@featureStory.Value("introText")</p>
+    				                <a href="@featureStory.Url()" class="btn btn-primary"> Read More >> </a>
+				                </div>
+				            </a>
+				        }
+				    }
+				
+				
+				</div>
+			</div>
+
+			<!-- Latest blog posts -->
+			<div class="row section">
+				<div class="col-md-12">
+					<h3>Latest stories</h3>
+				</div>
+			</div>
+
+			<!-- Blog Post Query goes here. -->
+			
+			
+            @{
+            	var selection = Umbraco.Content(Guid.Parse("a3a5624d-4140-43a7-870f-7076867fa34e"))
+                .ChildrenOfType("blogItem")
+                .Where(x => x.IsVisible())
+                .OrderByDescending(x => x.CreateDate);
+            }
+            <div class="row">
+            	@foreach (var item in selection)
+            	{
+            	    var thumbnail = item.Value<IPublishedContent>("thumbnailImage");
+            		<div class="col-md-4">
+					    <a href="@item.Url()" class="featured-link"><div class="thumbnail-blog">
+					    	<div class="thumbnail-img" style="background-image:url('@thumbnail.Url()')"></div>
+					        	<h5>@item.Value("title")</h5>
+					        </div></a>
+                    </div>					        
+            	}
+                	
+	    	</div>
+</div>

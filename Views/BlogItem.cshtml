@@ -1,0 +1,69 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.BlogItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<!-- Main container -->
+
+		<!-- Blogpost meta data -->
+		<div class="container-fluid grey-bg">
+			<div class="container">
+				<div class="row section">
+					<div class="col-md-6">
+						<div class="meta-author media p-3">
+							<div class="media-body">
+								<p><span class="font-weight-bold">Written by</span> <br />
+								    @Model.Value("authorName") <br />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="meta-meta text-right">
+							<p><br /> 
+								<span class="font-weight-bold">Published on</span> @(Model.Value<DateTime>("publishedOn").ToString("MMM dd, yyyy")) <br />
+								<span class="font-weight-bold">Category:</span> <a href="#">
+								    @if(Model.Categories.Any()){
+								    
+								        @foreach(var tag in Model.Categories){
+								            <span>@tag</span>
+								        }
+								    }   
+								
+								</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+
+		<!-- Blogpost content -->
+        <div class="container">
+
+			<div class="row section">
+				<div class="col-md-12">
+					<p class="intro">@Model.Value("introText")</p>
+					<br />
+					<p>@Model.Value("bodyText")</p>
+					<br />
+				
+				</div>
+			</div>
+		</div>
+
+		<!-- Related story -->
+		<div class="container-fluid orange-bg">
+			<div class="container">
+				<div class="row section">
+					<div class="col-md-12 blog-related">
+						<h4>Related story</h4>
+					
+						    <h5>The Umbraco 2021 MVPs</h5>
+							<p>This just in! We just announced 17 brand-new and 45 renewed Most Valuable People (MVPs) for Umbraco 🙌<br />
+								<span class="font-italic">Written by Ilham Boulghallat</span></p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>

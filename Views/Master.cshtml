@@ -1,0 +1,56 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@{
+	Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Welcome - UmbracoTV</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+	
+	<body>
+
+		<!-- Navigation -->
+		    
+		@await Html.PartialAsync("Navigation")
+		
+		<!-- Jumbotron, w title -->
+		<div class="jumbotron text-center jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-1">@Model.Value("title", fallback: Fallback.ToAncestors)</h1>
+				<p>@Model.Value("subtitle", fallback: Fallback.ToAncestors)</p>
+			</div>
+		</div>
+
+		<!-- This is where we're going to render our content -->
+		
+    	@RenderBody()
+	
+		<!-- Footer -->
+		<div class="container-fluid footer">
+			<div class="container">
+
+		    	@Model.Value("footerText", fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString("Copyright Umbraco 2021"))
+			
+					<div class="text-center">
+						<img src="/images/arm_with_u_logo.png" class="img-fluid" alt="Arm with Umbraco Logo">
+					</div>
+				</div>
+
+			</div>
+		</div>
+	
+	<!-- Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	
+	</body>
+</html>

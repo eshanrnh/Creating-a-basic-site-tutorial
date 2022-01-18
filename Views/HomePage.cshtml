@@ -1,0 +1,97 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@{
+	Layout = "Master.cshtml";
+}
+
+
+<div class="container">
+
+	<div class="row section">
+		<div class="col-md-12">
+
+		    @Model.Value("bodyText")
+
+		</div>				
+	</div>
+
+	</div>
+
+	<!-- Grey Banner -->
+	<div class="container-fluid grey-bg">
+		<div class="container">
+			<div class="row section">
+				<div class="col-md-8">
+					<h2>A flexible CMS - do things your way</h2>
+					    <p>The Umbraco source code is free and available for download either as a ZIP file or via NuGet under the MIT license, so you can <a href="#">start crafting websites in Umbraco today</a>. 
+						Need to build a site with multiple 3rd party extensions and customized add-ons? No problem. Need to build a simple site with a straightforward contact form? No problem.</p>
+						<p>Whatever type or scale of your project, Umbraco will be able to handle it - and the cherry on top; with Umbraco’s well-known editor friendly UI, 
+							no matter how complex a site you’re building, you know that your editors will still find it a breeze to edit. Oh, and the cherry on top of the cherry - 
+							there's <span class="font-weight-bold">no need for you to spend time learning a new coding or templating language as Umbraco is based on C#, javaScript and Razor</span>. </p>
+				</div>
+			<div class="col-md-4">
+				<img src="/images/community.png" class="img-fluid" alt="Community illustration">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Blog section -->
+	<div class="container">
+
+		<div class="row section">
+			<div class="col-md-12">
+				<h1>Latest from the blog</h1>
+			</div>
+
+		<!-- Blog Post query goes here. -->
+			<div class="col-md-4">
+				<div class="box-blog">
+					<a href="Blogpost.html"><div class="blog-promoImage" style="background-image:url('/images/u_product_roadmap_white-1.png')"></div></a>
+					<h5>Product Update - Deploying Deploy 3.3</h5>
+						<p class="blog-meta">January 20th 2020 - by Sofie Toft</p>
+						<p>The end of 2019 is approaching and with this, also the last Product Update of the year. 
+							Let’s have a look at what we’ve been working on and what you can expect in the near future.</p>
+				</div>
+				<a href="Blogpost.html" class="btn btn-inverted">Read more >></a>
+			</div>
+			<div class="col-md-4">
+				<div class="box-blog">
+					<a href="#"><div class="blog-promoImage" style="background-image:url('/images/Press.jpg')"></div></a>
+					<h5>Umbraco <3 YouTube</h5>
+						<p class="blog-meta">January 20th 2020 - by Sofie Toft</p>
+						<p>The end of 2019 is approaching and with this, also the last Product Update of the year. 
+							Let’s have a look at what we’ve been working on and what you can expect in the near future.</p>
+				</div>
+				<a href="#" class="btn btn-inverted">Read more >></a>
+			</div>
+			<div class="col-md-4">
+				<div class="box-blog">
+					<a href="#"><div class="blog-promoImage" style="background-image:url('/images/sofie-hammock.jpg')"></div></a>
+					<h5>A day in a Documentation Curators life</h5>
+						<p class="blog-meta">January 20th 2020 - by Sofie Toft</p>
+						<p>The end of 2019 is approaching and with this, also the last Product Update of the year. 
+							Let’s have a look at what we’ve been working on and what you can expect in the near future.</p>
+				</div>
+				<a href="#" class="btn btn-inverted blog-box-btn">Read more >></a>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Call to Action -->
+	<div class="container-fluid orange-bg">
+		<div class="container">
+
+			<div class="row section">
+				<div class="col-md-12 text-center">
+					<h1>How to continue your Umbraco journey</h1>
+						<p>What’s next? We have gathered the 3 best ways for you to go on from here ensuring you get the best start to your Umbraco journey: <br/><br/></p>
+						<a href="#" class="btn btn-inverted-orange" role="button">3 ways to start your Umbraco Journey >></a>
+				</div>
+			</div>
+	
+		</div>
+	</div>

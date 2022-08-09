@@ -14,20 +14,20 @@
 
 @{ var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray(); }
 
-@if (selection.Length > 0)
+@if (selection?.Length > 0)
 {
-   <div class="container">
+    <div class="container">
 			<nav class="navbar navbar-expand navbar-light">
 				<a class="navbar-brand font-weight-bold" href="@Model.Root().Url()">UmbracoTV</a>
 				<!-- Links -->
 				<ul class="navbar-nav">
-                    @foreach (var item in selection)
-                    {
-                        <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
-					    <a class="nav-link" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
-					</li>
-                    }
-                </ul>
+				    @foreach (var item in selection)
+				    {
+					<li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
+							    <a class="nav-link" href="@item.Url(PublishedUrlProvider)">@item.Name()</a>
+							</li>
+				    }
+			       </ul>
 			</nav>
 		</div>
 }
